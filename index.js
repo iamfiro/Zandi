@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog  } = require('electron')
 let request = require('request')
 var cheerio = require('cheerio');
 const { autoUpdater } = require("electron-updater");
