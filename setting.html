@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zandi</title>
+    <link rel="stylesheet" type="text/css" href="asset/css/setting.css">
+    <script src="asset/js/menubar.js"></script>
+
+    <script>
+        ipcRenderer.send("settinginit", localStorage.getItem("id"))
+        ipcRenderer.on('reply', (event, data) => {
+        })
+
+    </script>
+</head>
+
+<body style="-webkit-app-region: drag;">
+    <div class="menu-bar">
+        <div class="left">
+            <img onclick="location.href = 'index.html'" src="asset/img/left.png" class="leftbutton" onclick="left()">
+            <span
+                style="margin-top:8px;margin-left:8px;font-size: 15px;font-family: 'Noto Sans KR', sans-serif;">Setting</span>
+        </div>
+        <div class="program">
+            <div id="btnMin" onclick="clickent(2)"></div>
+            <div id="btnClose" onclick="clickent(1)"></div>
+        </div>
+    </div>
+    <div class="wrap">
+        <button onclick="location.href = 'gitSet.html'">계정 변경</button>
+    </div>
+</body>
+
+</html>

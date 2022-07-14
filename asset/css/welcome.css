@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+}
+
+.wrap {
+    background-color: #02CA57;
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation-duration: 3s;
+}
+
+.title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    margin-top: 100px;
+    color: #fff;
+    animation-duration: 3s;
+}
+
+.desc {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #fff;
+    width: 280px;
+    text-align: center;
+    animation-duration: 3s;
+}
+
+.left > span {
+    animation-duration: 3s;
+}
+
+button {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+    height: 40px;
+    background-color: #fff0;
+    border: 1.5px solid #fff;
+    color: #fff;
+    border-radius: 8px;
+    -webkit-app-region: no-drag;
+    animation-duration: 3s;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@keyframes turnotherscreen{
+    0% {
+    }
+    100% {
+        background-color: rgb(235, 235, 235);
+    }
+}
+
+@keyframes turnotherscreen2{
+    0% {
+    }
+    100% {
+        color: #000000;
+        opacity:0.6;
+    }
+}
+
+@keyframes turnotherscreen3{
+    0% {
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.menu-bar {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between
+}
+
+#btnClose {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #EE514C;
+    margin: 10px 10px 0px 0px;
+}
+
+#btnMin {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #F9BE32;
+    margin: 10px;
+}
+
+.program {
+    display: flex;
+}
+
+.left {
+    display: flex;
+}
+
+#setting:focus {
+    cursor: pointer;
+}
+
+#btnMin:hover {
+    cursor: pointer;
+}
+
+#btnClose:hover {
+    cursor: pointer;
+}
+
+#setting,
+#btnMin,
+#btnClose,
+.leftbutton,
+.rightbutton {
+    -webkit-app-region: no-drag;
+}

@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+}
+
+.wrap {
+    background-color: rgb(235, 235, 235);
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+}
+
+#toyang {
+    width: 100%;
+    height: 150px;
+    background-color: #573b3b;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    border-radius: 0px 0px 8px 8px;
+    z-index: 5;
+}
+
+#toyang > img {
+    height: 150px;
+    position: absolute;
+    bottom: 110px;
+    margin-right: 10px;
+}
+
+
+.today-commit_wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    color: rgb(120, 120, 120);
+    padding-top: 40px;
+}
+
+#today-commit {
+    font-family: 'Rubik', sans-serif;
+    font-size: 55px;
+    color: #000;
+}
+
+#today-date {
+    font-size: 12px;
+}
+
+#commit-count {
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-bottom: 15px
+}
+
+
+
+.menu-bar {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between
+}
+
+#btnClose {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #EE514C;
+    margin: 10px 10px 0px 0px;
+}
+
+#btnMin {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #F9BE32;
+    margin: 10px;
+}
+
+.program {
+    display: flex;
+}
+
+.left {
+    display: flex;
+}
+
+#setting:hover {
+    cursor: pointer;
+}
+
+#btnMin:hover {
+    cursor: pointer;
+}
+
+#btnClose:hover {
+    cursor: pointer;
+}
+
+#setting, #btnMin, #btnClose, .leftbutton, .rightbutton {
+    -webkit-app-region: no-drag;
+}
+
+.leftbutton {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    margin-left: 20px;
+    margin-top: 17px;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    opacity: .5
+}
+
+.leftbutton:hover {
+    cursor: pointer;
+}
+
+.rightbutton:hover {
+    cursor: pointer;
+}
+
+.rightbutton {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    width: 35px;
+    opacity: .2;
+    transform: rotate(-180deg);
+}

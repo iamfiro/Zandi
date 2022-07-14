@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Rubik&display=swap" rel="stylesheet">
+    <title>Zandi</title>
+    <link rel="stylesheet" type="text/css" href="asset/css/style.css">
+    <link rel="stylesheet" type="text/css" href="asset/css/1week.css">
+    <link rel="stylesheet" type="text/css" href="asset/css/1d1c.css">
+    <script src="asset/js/getdateFunc.js"></script>
+    <script>
+        var { ipcRenderer } = require('electron');
+        var btnMin = document.getElementById("min");
+        var btnMax = document.getElementById("max");
+        var btnClose = document.getElementById("close");
+        localStorage.getItem("first") === null || localStorage.getItem("first") === '' ? location.href = "welcome.html" : ipcRenderer.send("init", localStorage.getItem("id"));
+
+        ipcRenderer.on('reply', (event, data) => {
+            document.getElementById('app_title').innerHTML = localStorage.getItem("id") + ' | Zandi'
+            let streakCurrent = 0;
+            var htmlObject = document.createElement('div');
+            htmlObject.innerHTML = data;
+            let count = new Array();
+            count = htmlObject.querySelectorAll('.js-calendar-graph rect[data-count]');
+
+            function emoji(i) {
+                if (count[count.length - i].dataset.count <= 4) {
+                    return '🌱'
+                } else if (count[count.length - i].dataset.count <= 10) {
+                    return '🌿'
+                } else if (count[count.length - i].dataset.count >= 11) {
+                    return '🌳'
+                }
+            }
+
+            for (i = 1; i < 7; i++) {
+                var span = document.createElement('span')
+                span.innerText = count[count.length - i].dataset.date + ' (' + getDate(count[count.length - i].dataset.date) + ') - ' + emoji(i) + ' ' + count[count.length - i].dataset.count + ' 커밋'
+
+                document.getElementsByClassName('list_wrap')[0].append(span)
+            }
+
+            for (var i = count.length - 1; i > 0; i--) {
+                i === count.length - 1 ? document.getElementById('today-commit').innerText = count[i].dataset.count : false;
+                i === count.length - 1 ? document.getElementById('today-date').innerText = count[i].dataset.date + ' (' + getDate(count[i].dataset.date) + ') ' : false;
+
+                if (count[count.length - 1].dataset.count <= 4) {
+                    var img = document.createElement('img');
+                    img.src = 'asset/img/seedling.png';
+                    document.getElementById('toyang').appendChild(img)
+                } else if (count[count.length - 1].dataset.count <= 10) {
+                    var img = document.createElement('img');
+                    img.src = 'asset/img/herb.png';
+                    img.style.marginRight = '0px';
+                    img.style.bottom = '105px';
+                    document.getElementById('toyang').appendChild(img)
+                } else if (count[count.length - 1].dataset.count >= 11) {
+                    var img = document.createElement('img');
+                    img.src = 'asset/img/deciduous_tree.png';
+                    img.style.marginRight = '0px';
+                    img.style.height = '180px'
+                    img.style.bottom = '90px';
+                    document.getElementById('toyang').appendChild(img)
+                }
+
+                if (count[i].dataset.count > 0) {
+                    streakCurrent++
+                    document.getElementById('commit-count').innerText = streakCurrent + "일 째 연속 커밋 중 이에요!";
+                } else {
+                    i === count.length - 1 ? document.getElementById('commit-count').innerText = '한번 커밋 해보시는게 어떤가요?' : false;
+                    break;
+                }
+            }
+        })
+    </script>
+    <script src="asset/js/menubar.js"></script>
+    <script src="asset/js/wrapbutton.js"></script>
+</head>
+
+<body style="-webkit-app-region: drag;">
+    <div class="menu-bar">
+        <div class="left">
+            <img id="setting" src="asset/img/setting.png" width="20" height="20" style="margin:8px;opacity:0.6"
+                onclick="location.href = 'setting.html'">
+            <span style="margin-top:8px;opacity:0.6;font-size: 15px;" id="app_title">loding... | Zandi</span>
+        </div>
+        <div class="program">
+            <div id="btnMin" onclick="clickent(2)"></div>
+            <div id="btnClose" onclick="clickent(1)"></div>
+        </div>
+    </div>
+    <img src="asset/img/left.png" class="leftbutton" onclick="left()">
+    <img src="asset/img/left.png" class="rightbutton" onclick="right()">
+    <div class="wrap" style="display: block;">
+        <div class="today-commit_wrap">
+            <span id="today-date"></span>
+            <span>오늘 커밋 수</span>
+            <span id="today-commit"></span>
+        </div>
+        <div id="toyang">
+            <span id="commit-count">loding...</span>
+        </div>
+    </div>
+    <div class="wrap2" style="display: none;">
+        <div class="title_wrap">
+            <span>1주일의 성과 🌿</span>
+        </div>
+        <div class="list_wrap">
+        </div>
+    </div>
+    <div class="wrap3" style="display: none;">
+        <div class="title_wrap">
+            <span>준비중입니다. 🚀</span>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/74e7a55e4d.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

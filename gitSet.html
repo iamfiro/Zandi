@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zandi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="asset/css/gitSet.css">
+    <script src="asset/js/menubar.js"></script>
+
+    <script>
+        var isSelected;
+        var selectedId;
+        function clickCheckId() {
+            isSelected = false;
+            if(document.getElementById('id').value === undefined || document.getElementById('id').value === '') {
+                document.getElementsByClassName('desc')[0].innerText = 'Github 아이디를 입력해주세요.';
+                document.getElementsByClassName('desc')[0].style.display = 'block';
+                document.getElementsByClassName('userdata')[0].style.display = 'none';
+            } else {
+                document.getElementsByClassName('desc')[0].style.display = 'none'
+                ipcRenderer.send("checkGithubAcc", document.getElementById('id').value);
+            }
+        }
+
+        ipcRenderer.on('reply', (event, data) => {
+            if(data === '404') {
+                document.getElementsByClassName('desc')[0].innerText = 'Github 아이디를 확인 해주세요.';
+                document.getElementsByClassName('desc')[0].style.display = 'block';
+                document.getElementsByClassName('start')[0].disabled = true;
+                document.getElementsByClassName('start')[0].style.backgroundColor = '#434343';
+                document.getElementsByClassName('start')[0].style.color = '#b4b4b4';
+                document.getElementsByClassName('userdata')[0].style.display = 'none';
+            } else if(data === 'Organization') {
+                document.getElementsByClassName('desc')[0].innerText = 'Organization 계정은 등록이 되지 않습니다.';
+                document.getElementsByClassName('desc')[0].style.display = 'block';
+                document.getElementsByClassName('start')[0].disabled = true;
+                document.getElementsByClassName('start')[0].style.backgroundColor = '#434343';
+                document.getElementsByClassName('start')[0].style.color = '#b4b4b4';
+                document.getElementsByClassName('userdata')[0].style.display = 'none';
+            } else {
+                document.getElementsByClassName('start')[0].disabled = false;
+                document.getElementsByClassName('start')[0].style.backgroundColor = '#000';
+                document.getElementsByClassName('start')[0].style.color = '#fff';
+
+                document.getElementById('userdata_id').innerText = data.login;
+                document.getElementById('userdata_img').src = data.avatar_url;
+                document.getElementsByClassName('userdata')[0].style.display = 'flex';
+                isSelected = true;
+                selectedId = data.login;
+            }
+        })
+
+        function start() {
+            if(isSelected) {
+                localStorage.setItem("first", 'yey');
+                localStorage.setItem("id", selectedId);
+
+                location.href = 'index.html'
+            }
+        }
+    </script>
+</head>
+
+<body style="-webkit-app-region: drag;">
+    <div class="menu-bar">
+        <div class="left">
+            <span
+                style="margin-top:8px;margin-left:15px;color: rgb(0, 0, 0);opacity: .6;font-size: 15px;font-family: 'Noto Sans KR', sans-serif;">Zandi</span>
+        </div>
+        <div class="program">
+            <div id="btnMin" onclick="clickent(2)"></div>
+            <div id="btnClose" onclick="clickent(1)"></div>
+        </div>
+    </div>
+    <div class="wrap">
+        <span class="title">Github 아이디를 입력해주세요. ✨</span>
+        <div class="input_wrap">
+            <input type="text" id="id" placeholder="anojds" ></input>
+            <button onclick="clickCheckId()">확인 하기</button>
+        </div>
+        <span class="desc">Github 아이디를 입력해주세요.</span>
+        <div class="userdata" style="display: none">
+            <span style="font-family: 'Noto Sans KR', sans-serif;;opacity: 0.5;margin-top: 20px;">이 계정이 맞나요?</span>
+            <img id="userdata_img">
+            <span id="userdata_id" class="userid" style="font-family: 'Noto Sans KR', sans-serif;font-weight:900;margin-top: 10px;"></span>
+        </div>
+        <button class="start" onclick="start()" disabled>시작하기</button>
+    </div>
+</body>
+
+</html>

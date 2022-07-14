@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zandi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="asset/css/welcome.css">
+    <script src="asset/js/getdateFunc.js"></script>
+    <script src="asset/js/menubar.js"></script>
+</head>
+
+<body style="-webkit-app-region: drag;">
+    <div class="menu-bar">
+        <div class="left">
+            <span
+                style="margin-top:8px;margin-left:15px;color: #fff;font-size: 15px;font-family: 'Noto Sans KR', sans-serif;">Zandi</span>
+        </div>
+        <div class="program">
+            <div id="btnMin" onclick="clickent(2)"></div>
+            <div id="btnClose" onclick="clickent(1)"></div>
+        </div>
+    </div>
+    <div class="wrap">
+        <span class="title">안녕하세요. 👋</span>
+        <span class="desc">내 잔디를 <del>최첨단 기술로</del> 간편하게 확인할 수 있는 프로그램 입니다!</span>
+        <button onclick="animationStart()">한번 가볼까요?!?</button>
+    </div>
+    <script>
+        function animationStart() {
+            document.querySelector('.wrap').style.animationName = 'turnotherscreen';
+            document.querySelector('.title').style.animationName = 'turnotherscreen3';
+            document.querySelector('.desc').style.animationName = 'turnotherscreen3';
+            document.querySelector('.left > span').style.animationName = 'turnotherscreen2';
+            document.querySelector('button').style.animationName = 'turnotherscreen3';
+            setTimeout(function(){ location.href = 'gitSet.html' }, 2900);
+        }
+    </script>
+</body>
+
+</html>
