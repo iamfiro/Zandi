@@ -1,3 +1,4 @@
+// 모듈 불러오기
 const { app, BrowserWindow, ipcMain, dialog  } = require('electron')
 let request = require('request')
 var cheerio = require('cheerio');
