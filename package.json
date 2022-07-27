@@ -1,7 +1,7 @@
 {
   "name": "zandi",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "오늘 커밋한 수를 보여주는 프로그램 입니다",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -25,10 +25,12 @@
     "mac": {
       "target": [
         "default"
-      ]
+      ],
+      "icon": "./asset/icon/icon.icns"
     },
     "dmg": {
-      "title": "Start Electron"
+      "title": "Zandi",
+      "icon": "./asset/icon/icon.icns"
     },
     "win": {
       "target": [
@@ -39,7 +41,8 @@
             "ia32"
           ]
         }
-      ]
+      ],
+      "icon": "./asset/icon/icon.ico"
     },
     "nsis": {
       "oneClick": false,
@@ -62,6 +65,7 @@
     "cheerio": "^1.0.0-rc.12",
     "electron-log": "^4.4.8",
     "electron-updater": "^5.0.5",
+    "path": "^0.12.7",
     "request": "^2.88.2"
   }
 }

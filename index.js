@@ -4,6 +4,7 @@ let request = require('request')
 var cheerio = require('cheerio');
 const { autoUpdater } = require("electron-updater");
 const log = require('electron-log');
+var path = require('path')
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -12,7 +13,7 @@ function createWindow() {
     frame: false,
     // autoHideMenuBar: true,
     transparent: true,
-    icon: __dirname + '/asset/icon/icon.png',
+    icon: __dirname + '/asset/icon/icon.icns',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
