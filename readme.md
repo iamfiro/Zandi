@@ -1,7 +1,7 @@
 # Zandi
 Version
 
-![Version](https://shields.io/github/v/release/anojds/Zandi?display_name=tag)
+![Versions](https://shields.io/github/v/release/anojds/Zandi?display_name=tag)
 
 Support Platform
 
