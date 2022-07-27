@@ -2,6 +2,7 @@
 
 ![Versions](https://shields.io/github/v/release/anojds/Zandi?display_name=tag)
 ![GitHub](https://img.shields.io/github/license/anojds/Zandi)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
 
 Support Platform
 
@@ -16,3 +17,4 @@ Check your GitHub contributions easily 🌳
 
 <img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/178995056-281a594c-63b9-4f22-bf9a-d8e814b901ce.png">
 
+🇺🇸 english will be supported soon
