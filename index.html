@@ -11,14 +11,13 @@
     <title>Zandi</title>
     <link rel="stylesheet" type="text/css" href="asset/css/style.css">
     <link rel="stylesheet" type="text/css" href="asset/css/1week.css">
-    <link rel="stylesheet" type="text/css" href="asset/css/1d1c.css">
     <script src="asset/js/getdateFunc.js"></script>
     <script>
         var { ipcRenderer } = require('electron');
         var btnMin = document.getElementById("min");
         var btnMax = document.getElementById("max");
         var btnClose = document.getElementById("close");
-        localStorage.getItem("first") === null || localStorage.getItem("first") === '' ? location.href = "welcome.html" : ipcRenderer.send("init", localStorage.getItem("id"));
+        localStorage.getItem("check_first") === null || localStorage.getItem("check_first") === '' ? location.href = "pages/welcome.html" : ipcRenderer.send("init", localStorage.getItem("id"));
 
         ipcRenderer.on('reply', (event, data) => {
             document.getElementById('app_title').innerHTML = localStorage.getItem("id") + ' | Zandi'
@@ -86,7 +85,7 @@
     <div class="menu-bar">
         <div class="left">
             <img id="setting" src="asset/img/setting.png" width="20" height="20" style="margin:8px;opacity:0.6"
-                onclick="location.href = 'setting.html'">
+                onclick="location.href = './pages/setting.html'">
             <span style="margin-top:8px;opacity:0.6;font-size: 15px;" id="app_title">loding... | Zandi</span>
         </div>
         <div class="program">

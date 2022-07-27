@@ -70,7 +70,7 @@ ipcMain.on('init', (event, data) => {
   });
 });
 
-ipcMain.on('settinginit', (event, data) => {
+ipcMain.on('appVersion', (event, data) => {
     event.reply('reply', app.getVersion())
 });
 

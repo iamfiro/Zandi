@@ -49,6 +49,11 @@ button:hover {
     cursor: pointer;
 }
 
+#appVersion {
+    position: absolute;
+    bottom: 10px;
+    color: rgb(94, 94, 94);
+}
 
 
 
