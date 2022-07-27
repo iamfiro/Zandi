@@ -71,7 +71,7 @@ ipcMain.on('init', (event, data) => {
 });
 
 ipcMain.on('appVersion', (event, data) => {
-    event.reply('reply', app.getVersion())
+  event.reply('reply', app.getVersion())
 });
 
 ipcMain.on('checkGithubAcc', (event, data) => {
