@@ -1,6 +1,6 @@
 {
   "name": "zandi",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "오늘 커밋한 수를 보여주는 프로그램 입니다",
   "main": "index.js",
   "repository": {
