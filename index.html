@@ -39,7 +39,8 @@
 
             for (i = 1; i < 7; i++) {
                 var span = document.createElement('span')
-                span.innerText = count[count.length - i].dataset.date + ' (' + getDate(count[count.length - i].dataset.date) + ') - ' + emoji(i) + ' ' + count[count.length - i].dataset.count + ' 커밋'
+                var translatetext = localStorage.getItem("language") === 'ko' ? ' 커밋' : ' commits'
+                span.innerText = count[count.length - i].dataset.date + ' (' + getDate(count[count.length - i].dataset.date) + ') - ' + emoji(i) + ' ' + count[count.length - i].dataset.count + translatetext
 
                 document.getElementsByClassName('list_wrap')[0].append(span)
             }
@@ -69,9 +70,10 @@
 
                 if (count[i].dataset.count > 0) {
                     streakCurrent++
-                    document.getElementById('commit-count').innerText = streakCurrent + "일 째 연속 커밋 중 이에요!";
+                    // document.getElementById('commit-count').innerText = streakCurrent + "일 째 연속 커밋 중 이에요!";
+                    document.getElementById('commit-count').innerText = localStorage.getItem("language") === 'ko' ? streakCurrent + "일 째 연속 커밋 중 이에요!" : 'Your commit for the ' + streakCurrent + 'th day in a row!';
                 } else {
-                    i === count.length - 1 ? document.getElementById('commit-count').innerText = '한번 커밋 해보시는게 어떤가요?' : false;
+                    i === count.length - 1 ? document.getElementById('commit-count').innerText = localStorage.getItem("language") === 'ko' ? '한번 커밋 해보시는게 어떤가요?' : 'How about commit once?' : false;
                     break;
                 }
             }
@@ -98,7 +100,7 @@
     <div class="wrap" style="display: block;">
         <div class="today-commit_wrap">
             <span id="today-date"></span>
-            <span>오늘 커밋 수</span>
+            <span id="main_today-commit">오늘 커밋 수</span>
             <span id="today-commit"></span>
         </div>
         <div id="toyang">
@@ -107,7 +109,7 @@
     </div>
     <div class="wrap2" style="display: none;">
         <div class="title_wrap">
-            <span>1주일의 성과 🌿</span>
+            <span id="main_1week">1주일의 성과 🌿</span>
         </div>
         <div class="list_wrap">
         </div>
@@ -118,6 +120,9 @@
         </div>
     </div>
     <script src="https://kit.fontawesome.com/74e7a55e4d.js" crossorigin="anonymous"></script>
+    <script src="./asset/js/locale.js"></script>
+    <script>
+        var screenName = 'main';
+    </script>
 </body>
-
 </html>

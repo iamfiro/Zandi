@@ -1,0 +1,12 @@
+[{
+    "welcome_hello": "Welcome. 👋",
+    "welcome_description": "This app is you can easily check your commits with <del>cutting-edge technology!</del>",
+    "welcome_button": "Let's do this?!",
+    "gitSet_title": "Enter the Github id. ✨",
+    "gitSet_check": "check",
+    "gitSet_start": "Start!",
+    "gitSet_thisisyouracc": "Is this account correct?",
+    "main_todaycommit": "Today Commits",
+    "main_1week": "1 week performance 🌿",
+    "setting_changeAcc": "Change Account"
+}]

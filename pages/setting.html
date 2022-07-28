@@ -24,12 +24,16 @@
         </div>
     </div>
     <div class="wrap">
-        <button onclick="location.href = './gitSet.html'">계정 변경</button>
+        <button id="setting_changeacc" onclick="location.href = './gitSet.html'">계정 변경</button>
         <span id="appVersion">Loading...</span>
     </div>
 
     <script>
         getVersion(document.getElementById('appVersion'))
     </script>
+    <script>
+        var screenName = 'setting';
+    </script>
+    <script src="../asset/js/locale.js"></script>
 </body>
 </html>

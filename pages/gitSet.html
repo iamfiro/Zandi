@@ -25,18 +25,18 @@
         </div>
     </div>
     <div class="wrap">
-        <span class="title">Github 아이디를 입력해주세요. ✨</span>
+        <span id="gitset_title" class="title">Github 아이디를 입력해주세요. ✨</span>
         <div class="input_wrap">
             <input type="text" id="id" placeholder="anojds" ></input>
-            <button onclick="clickCheckId()">확인 하기</button>
+            <button id='gitset_check' onclick="clickCheckId()">확인 하기</button>
         </div>
         <span class="desc">Github 아이디를 입력해주세요.</span>
         <div class="userdata" style="display: none">
-            <span style="font-family: 'Noto Sans KR', sans-serif;;opacity: 0.5;margin-top: 20px;">이 계정이 맞나요?</span>
+            <span id="gitset_thisisyouracc" style="font-family: 'Noto Sans KR', sans-serif;opacity: 0.5;margin-top: 20px;">이 계정이 맞나요?</span>
             <img id="userdata_img">
             <span id="userdata_id" class="userid" style="font-family: 'Noto Sans KR', sans-serif;font-weight:900;margin-top: 10px;"></span>
         </div>
-        <button class="start" onclick="start()" disabled>시작하기</button>
+        <button id="gitset_start" class="start" onclick="start()" disabled>시작하기</button>
     </div>
 
     <script src="../asset/js/ipc.js"></script>
