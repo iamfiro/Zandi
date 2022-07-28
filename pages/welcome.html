@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../asset/css/welcome.css">
     <script src="../asset/js/menubar.js"></script>
+    <script src="../asset/js/locale.js"></script>
 </head>
 
 <body style="-webkit-app-region: drag;">
@@ -25,11 +26,13 @@
         </div>
     </div>
     <div class="wrap">
-        <span class="title">안녕하세요. 👋</span>
-        <span class="desc">내 잔디를 <del>최첨단 기술로</del> 간편하게 확인할 수 있는 프로그램 입니다!</span>
-        <button onclick="animationStart()">한번 가볼까요?!?</button>
+        <span id="welcome_title" class="title">안녕하세요. 👋</span>
+        <span id="welcome_description" class="desc">내 잔디를 <del>최첨단 기술로</del> 간편하게 확인할 수 있는 프로그램 입니다!</span>
+        <button id="welcome_button" onclick="animationStart()">한번 가볼까요?!?</button>
     </div>
     <script>
+        localStorage.setItem('language', navigator.language)
+        var screenName = 'welcome'
         function animationStart() {
             document.querySelector('.wrap').style.animationName = 'turnotherscreen';
             document.querySelector('.title').style.animationName = 'turnotherscreen3';

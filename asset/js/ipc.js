@@ -9,7 +9,7 @@ function clickCheckId() {
     let idDom = document.getElementById('id');
     isSelected = false;
     if(idDom.value === undefined || idDom.value === '') {
-        descDom.innerText = 'Github 아이디를 입력해주세요.';
+        localStorage.getItem("language") === 'ko' ? descDom.innerText = 'Github 아이디를 입력해주세요.' : descDom.innerText = 'Enter the Github Id';
         descDom.style.display = 'block';
         userDataDom.style.display = 'none';
     } else {
@@ -20,14 +20,14 @@ function clickCheckId() {
 
 ipcRenderer.on('reply', (event, data) => {
     if(data === '404') {
-        descDom.innerText = 'Github 아이디를 확인 해주세요.';
+        localStorage.getItem("language") === 'ko' ? descDom.innerText = 'Github 아이디를 확인 해주세요.' : descDom.innerText = 'Check your Github Id'
         descDom.style.display = 'block';
         startDom.disabled = true;
         startDom.style.backgroundColor = '#434343';
         startDom.style.color = '#b4b4b4';
         userDataDom.style.display = 'none';
     } else if(data === 'Organization') {
-        descDom.innerText = 'Organization 계정은 등록이 되지 않습니다.';
+        localStorage.getItem("language") === 'ko' ? descDom.innerText = 'Organization 계정은 등록이 되지 않습니다.' : descDom.innerText = 'Organization acc is not allowed';
         descDom.style.display = 'block';
         startDom.disabled = true;
         startDom.style.backgroundColor = '#434343';
@@ -49,6 +49,6 @@ function start() {
     if(isSelected) {
         localStorage.setItem("check_first", 'yey');
         localStorage.setItem("id", selectedId);
-        location.href = '../index.html'
+        location.href = '../index.html';
     }
 }

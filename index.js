@@ -1,26 +1,37 @@
 // 모듈 불러오기
-const { app, BrowserWindow, ipcMain, dialog  } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 let request = require('request')
 var cheerio = require('cheerio');
 const { autoUpdater } = require("electron-updater");
 const log = require('electron-log');
-var path = require('path')
+var fs = require('fs')
 
 function createWindow() {
   const win = new BrowserWindow({
     width: 300,
     height: 450,
     frame: false,
-    // autoHideMenuBar: true,
+    resizable: false,
+    autoHideMenuBar: true,
     transparent: true,
     icon: __dirname + '/asset/icon/icon.icns',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true
+      enableRemoteModule: true,
+      devTools: false,
     }
   })
   win.loadFile('index.html');
+
+
+  ipcMain.on('getLocale', (event, data) => {
+    var language = data === 'ko' ? data : 'en'
+    fs.readFile('./asset/language/' + data + '.json', (err, data) => {
+      const jsonData = data ? JSON.parse(data) : '';
+      event.reply('getLocaleReply', { locale: app.getLocaleCountryCode(), json: jsonData })
+    })
+  });
 
   autoUpdater.on('checking-for-update', () => {
     log.info('업데이트 확인 중...');

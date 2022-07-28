@@ -1,0 +1,12 @@
+[{
+    "welcome_hello": "안녕하세요. 👋",
+    "welcome_description": "내 잔디를 <del>최첨단 기술로</del> 간편하게 확인할 수 있는 프로그램 입니다!",
+    "welcome_button": "한번 가볼까요?!",
+    "gitSet_title": "Github 아이디를 입력해주세요. ✨",
+    "gitSet_check": "확인 하기",
+    "gitSet_start": "시작하기",
+    "gitSet_thisisyouracc": "이 계정이 맞나요?",
+    "main_todaycommit": "오늘 커밋 수",
+    "main_1week": "1주일의 성과 🌿",
+    "setting_changeAcc": "계정 변경하기"
+}]
