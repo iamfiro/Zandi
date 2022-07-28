@@ -6,6 +6,7 @@ function did(id, text) {
 
 ipcRenderer.send("getLocale", localStorage.getItem('language'));
 ipcRenderer.on('getLocaleReply', (event, data) => {
+    localStorage.setItem('language',data.locale)
     jd = data.json[0]
     if(screenName === 'welcome') {
         did('welcome_title', jd.welcome_hello)

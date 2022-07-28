@@ -24,10 +24,10 @@ function createWindow() {
   })
   win.loadFile('index.html');
 
-
   ipcMain.on('getLocale', (event, data) => {
-    var language = data === 'ko' ? data : 'en'
-    fs.readFile('./asset/language/' + data + '.json', (err, data) => {
+    var language = app.getLocaleCountryCode() === 'KR'? 'ko' : 'en';
+    console.log(language)
+    fs.readFile('./asset/language/' + language + '.json', (err, data) => {
       const jsonData = data ? JSON.parse(data) : '';
       event.reply('getLocaleReply', { locale: app.getLocaleCountryCode(), json: jsonData })
     })
