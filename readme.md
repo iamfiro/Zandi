@@ -11,8 +11,11 @@ Support Platform
 ![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
 
 ## 👀 Zandi Preview
-<img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/178995023-859206c6-2cf1-4c21-89e8-edf8990da844.png">
 
-<img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/178995056-281a594c-63b9-4f22-bf9a-d8e814b901ce.png">
-
+<div style='display:flex'>
+  <img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/181492590-cce731d5-3951-4fe6-92da-7a01e7b491d5.png">
+  <img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/181493108-1c1a1bf9-b5c2-413f-b5ad-e897fe4fc6ce.png">
+  <img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/181492814-b255647c-10c4-413b-b605-15674cbc301c.png">
+</div>
+  
 🇺🇸 english will be supported soon
