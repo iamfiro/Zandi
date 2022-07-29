@@ -17,5 +17,3 @@ Support Platform
   <img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/181493108-1c1a1bf9-b5c2-413f-b5ad-e897fe4fc6ce.png">
   <img style="width: 30%" src="https://user-images.githubusercontent.com/72495729/181492814-b255647c-10c4-413b-b605-15674cbc301c.png">
 </div>
-  
-🇺🇸 english will be supported soon
